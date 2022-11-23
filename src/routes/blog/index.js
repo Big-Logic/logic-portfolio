@@ -7,6 +7,11 @@ import { collection, getDocs } from "firebase/firestore/lite";
 const Blog = function () {
   const [blogPosts, setBlogPosts] = useState([]);
 
+  function calculateDate(secs) {
+    const date = new Date(secs * 1000);
+    return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+  }
+
   async function getData() {
     const postsCollection = collection(FirebaseDb, "posts");
     try {
@@ -21,6 +26,13 @@ const Blog = function () {
           return { ...doc.data(), id: doc.id };
         })
       );
+
+      // console.log(
+      //   querySnapshot.docs.map((doc) => {
+      //     console.log(doc.data());
+      //   })[0]
+      //);
+      calculateDate(1669044446);
     } catch (err) {
       console.log(err);
     }
@@ -69,7 +81,9 @@ const Blog = function () {
                       <p className="text-xl font-semibold text-gray-900">
                         {post.title}
                       </p>
-                      <p className="mt-3 text-base text-gray-500">{post.content}</p>
+                      <p className="mt-3 text-base text-gray-500">
+                        {post.content}
+                      </p>
                     </a>
                   </div>
                   <div className="mt-6 flex items-center">
@@ -90,7 +104,9 @@ const Blog = function () {
                         </a>
                       </p>
                       <div className="flex space-x-1 text-sm text-gray-500">
-                        <time datetime="2020-03-16">Mar 16, 2020</time>
+                        <time datetime="2020-03-16">
+                          {calculateDate(post.created_at.seconds)}
+                        </time>
                         <span aria-hidden="true">&middot;</span>
                         <span>6 min read</span>
                       </div>
