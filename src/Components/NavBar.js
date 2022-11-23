@@ -4,14 +4,14 @@ const NavBar = function() {
     return (
       <>
         <div id="navbar">
-          <nav class="bg-white shadow">
-            <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-              <div class="relative flex h-16 justify-between">
-                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <nav className="bg-white shadow">
+            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+              <div className="relative flex h-16 justify-between">
+                <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                   {/* <!-- Mobile menu button --> */}
                   <button
                     type="button"
-                    class="
+                    className="
                     inline-flex
                     items-center
                     justify-center
@@ -27,7 +27,7 @@ const NavBar = function() {
                     aria-controls="mobile-menu"
                     aria-expanded="false"
                   >
-                    <span class="sr-only">Open main menu</span>
+                    <span className="sr-only">Open main menu</span>
                     {/* <!--
                 Icon when menu is closed.
     
@@ -36,7 +36,7 @@ const NavBar = function() {
                 Menu open: "hidden", Menu closed: "block"
               --> */}
                     <svg
-                      class="block h-6 w-6"
+                      className="block h-6 w-6"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -58,7 +58,7 @@ const NavBar = function() {
                 Menu open: "block", Menu closed: "hidden"
               --> */}
                     <svg
-                      class="hidden h-6 w-6"
+                      className="hidden h-6 w-6"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -75,22 +75,22 @@ const NavBar = function() {
                   </button>
                 </div>
                 <div
-                  class="
+                  className="
                   flex flex-1
                   items-center
                   justify-center
                   sm:items-stretch sm:justify-start
                 "
                 >
-                  <div class="flex flex-shrink-0 items-center">
-                    <h4 class="block h-6 w-auto lg:hidden">Big Logic</h4>
-                    <h4 class="hidden h-6 w-auto lg:block">Big Logic</h4>
+                  <div className="flex flex-shrink-0 items-center">
+                    <h4 className="block h-6 w-auto lg:hidden">Big Logic</h4>
+                    <h4 className="hidden h-6 w-auto lg:block">Big Logic</h4>
                   </div>
-                  <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                  <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                     {/* <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" --> */}
                     <a
                       href="/projects"
-                      class="
+                      className="
                       inline-flex
                       items-center
                       border-b-2 border-indigo-500
@@ -105,7 +105,7 @@ const NavBar = function() {
                     </a>
                     <a
                       href="/blog"
-                      class="
+                      className="
                       inline-flex
                       items-center
                       border-b-2 border-transparent
@@ -121,7 +121,7 @@ const NavBar = function() {
                     </a>
                     <a
                       href="/contact"
-                      class="
+                      className="
                       inline-flex
                       items-center
                       border-b-2 border-transparent
@@ -138,7 +138,7 @@ const NavBar = function() {
                   </div>
                 </div>
                 <div
-                  class="
+                  className="
                   absolute
                   inset-y-0
                   right-0
@@ -152,12 +152,12 @@ const NavBar = function() {
             </div>
 
             {/* <!-- Mobile menu, show/hide based on menu state. --> */}
-            <div class="sm:hidden" id="mobile-menu">
-              <div class="space-y-1 pt-2 pb-4">
+            <div className="sm:hidden" id="mobile-menu">
+              <div className="space-y-1 pt-2 pb-4">
                 {/* <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" --> */}
                 <a
                   href="#"
-                  class="
+                  className="
                   block
                   border-l-4 border-indigo-500
                   bg-indigo-50
@@ -173,7 +173,7 @@ const NavBar = function() {
                 </a>
                 <a
                   href="#"
-                  class="
+                  className="
                   block
                   border-l-4 border-transparent
                   py-2
@@ -189,7 +189,7 @@ const NavBar = function() {
                 </a>
                 <a
                   href="#"
-                  class="
+                  className="
                   block
                   border-l-4 border-transparent
                   py-2
