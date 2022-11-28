@@ -3,14 +3,10 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../../Components/NavBar";
 import { FirebaseDb } from "../../Components/db/firebase";
 import { collection, getDocs } from "firebase/firestore/lite";
+import PostAuthorCard from "../../Components/PostAuthorCard";
 
 const Blog = function () {
   const [blogPosts, setBlogPosts] = useState([]);
-
-  function calculateDate(secs) {
-    const date = new Date(secs * 1000);
-    return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
-  }
 
   async function getData() {
     const postsCollection = collection(FirebaseDb, "posts");
@@ -21,18 +17,17 @@ const Blog = function () {
           return { ...doc.data(), id: doc.id };
         })
       );
-      console.log(
-        querySnapshot.docs.map((doc) => {
-          return { ...doc.data(), id: doc.id };
-        })
-      );
+      // console.log(
+      //   querySnapshot.docs.map((doc) => {
+      //     return { ...doc.data(), id: doc.id };
+      //   })
+      // );
 
       // console.log(
       //   querySnapshot.docs.map((doc) => {
       //     console.log(doc.data());
       //   })[0]
-      //);
-      calculateDate(1669044446);
+      // );
     } catch (err) {
       console.log(err);
     }
@@ -87,30 +82,7 @@ const Blog = function () {
                     </a>
                   </div>
                   <div className="mt-6 flex items-center">
-                    <div className="flex-shrink-0">
-                      <a href="#">
-                        <span className="sr-only">Roel Aufderehar</span>
-                        <img
-                          className="h-10 w-10 rounded-full"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                          alt=""
-                        />
-                      </a>
-                    </div>
-                    <div className="ml-3">
-                      <p className="text-sm font-medium text-gray-900">
-                        <a href="#" className="hover:underline">
-                          Roel Aufderehar
-                        </a>
-                      </p>
-                      <div className="flex space-x-1 text-sm text-gray-500">
-                        <time datetime="2020-03-16">
-                          {calculateDate(post.created_at.seconds)}
-                        </time>
-                        <span aria-hidden="true">&middot;</span>
-                        <span>6 min read</span>
-                      </div>
-                    </div>
+                    <PostAuthorCard authorId={post.author.id.trim()} postDate={post.created_at.seconds}/>
                   </div>
                 </div>
               </div>
